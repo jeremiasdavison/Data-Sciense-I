@@ -1,25 +1,27 @@
 # Data-Sciense-I
 
-# Proyecto de Visualización y Análisis de la Felicidad Mundial 🌍
+# Proyecto Final – Análisis y Modelado de la Felicidad Mundial 🌍
 
 ## 📌 Descripción General
 
-Este proyecto forma parte de la **Primera Entrega del Trabajo Final** del curso de Data Science.  
-El objetivo es analizar el **World Happiness Report** utilizando técnicas de **visualización, análisis exploratorio y diagnóstico inicial del dataset**, aplicadas con Python.
+Este repositorio contiene los trabajos realizados durante la cursada de **Data Science I**, culminando en un **proyecto final** basado en el análisis del *World Happiness Report*.
 
-Se busca responder la pregunta:
-> *¿Qué factores socioeconómicos y sociales influyen en el nivel de felicidad de los países?*
+El proyecto comenzó como un ejercicio de **visualización y análisis exploratorio**, y evolucionó hacia un enfoque de **modelado predictivo**, aplicando técnicas de ciencia de datos para comprender qué factores influyen en el nivel de felicidad de los países.
+
+Pregunta central del análisis:
+> *¿Qué variables socioeconómicas y sociales influyen en el nivel de felicidad de los países y en qué medida pueden predecirse a partir de los datos disponibles?*
 
 ---
 
-## 🎯 Objetivos del Proyecto
+## 🎯 Objetivo del Proyecto
 
-✔ Realizar un **Abstract** descriptivo del problema (250–500 palabras)  
-✔ Formular **preguntas e hipótesis** de interés basadas en los datos  
-✔ Explorar el dataset con **resúmenes numéricos y detección de valores faltantes**  
-✔ Generar visualizaciones **univariadas, bivariadas y multivariadas (3+ variables)**  
-✔ Interpretar los gráficos y vincularlos directamente con las hipótesis  
-✔ Dejar listo el notebook como avance para el análisis final del proyecto
+Analizar los factores asociados al nivel de felicidad de los países y desarrollar un modelo de aprendizaje automático capaz de **predecir el puntaje de felicidad** a partir de variables económicas, sociales y de bienestar.
+
+---
+
+## 🏢 Contexto
+
+El análisis se plantea desde la perspectiva de una organización interesada en evaluar el bienestar de distintos países para apoyar la toma de decisiones vinculadas a políticas públicas, desarrollo social y calidad de vida.
 
 ---
 
@@ -28,53 +30,99 @@ Se busca responder la pregunta:
 | Característica | Detalle |
 |----------------|---------|
 | Fuente | Kaggle — World Happiness Report |
-| Formato | CSV delimitado por `;` |
-| Filas | Múltiples países, varios años |
-| Variables principales | 10 |
-| Objetivo | Evaluar cómo factores como PIB, salud, apoyo social, corrupción y libertad afectan la felicidad |
+| Formato | CSV |
+| Observaciones | Países a lo largo de distintos años |
+| Variables principales | Indicadores económicos, sociales y de salud |
+| Variable objetivo | Happiness score |
 
 ### 🔑 Variables clave utilizadas
 
 | Variable | Descripción |
 |----------|-------------|
 | Happiness score | Nivel de felicidad (0 a 10) |
-| GDP per capita | PIB per cápita (riqueza) |
+| GDP per capita | PIB per cápita |
 | Healthy life expectancy | Expectativa de vida saludable |
 | Social support | Apoyo social percibido |
 | Freedom to make life choices | Libertad percibida |
-| Perceptions of corruption | Confianza institucional |
-| Regional indicator | Región geográfica |
+| Perceptions of corruption | Corrupción percibida |
 
 ---
 
-## ❓ Preguntas e Hipótesis
+## ❓ Hipótesis de Trabajo
 
-| Pregunta | Hipótesis |
-|----------|-----------|
-| ¿El PIB influye en la felicidad? | A mayor PIB per cápita, mayor nivel de felicidad. |
-| ¿La salud impacta en el bienestar? | Los países con mayor expectativa de vida son más felices. |
-| ¿La corrupción reduce la felicidad? | Cuanto mayor la corrupción percibida, menor la felicidad. |
-| ¿Factores combinados explican mejor la felicidad? | El bienestar aumenta cuando hay riqueza, salud y estabilidad regional. |
+- Existe una relación positiva entre el PIB per cápita y el nivel de felicidad.
+- Los países con mayor expectativa de vida saludable presentan mayores niveles de bienestar.
+- Una mayor percepción de corrupción se asocia con menores niveles de felicidad.
+- La felicidad puede explicarse mejor a partir de la combinación de múltiples factores socioeconómicos.
 
----
-
-## 📊 Visualizaciones realizadas
-
-| Tipo de gráfico | Contenido | Variables |
-|------------------|----------|-----------|
-| Univariado | Distribución felicidad | Happiness score |
-| Bivariado | PIB vs Felicidad | GDP per capita / Happiness score |
-| Bivariado | Salud vs Felicidad | Health / Happiness score |
-| Bivariado | Corrupción vs Felicidad | Perceptions of corruption / Happiness score |
-| Comparativo | Libertad y apoyo social vs felicidad | Freedom, Social support, Happiness |
-| **Multivariado (3+)** | PIB, Salud y Felicidad (con tamaño) | GDP, Life expectancy, Happiness score, Región (opcional) |
+Estas hipótesis fueron evaluadas mediante análisis exploratorio y modelado predictivo.
 
 ---
 
-## 🔍 Técnicas utilizadas
+## 📊 Análisis Exploratorio de Datos (EDA)
 
-- 🧮 Pandas para manipulación de datos  
-- 📊 Matplotlib & Seaborn para visualizaciones  
-- 🧹 Análisis de valores faltantes con `isnull()`  
-- 📈 Resumen estadístico con `describe()`  
-- 🔎 Interpretación vinculada
+El EDA incluyó:
+- Exploración inicial del dataset y estructura de los datos
+- Análisis de variables numéricas y estadísticas descriptivas
+- Detección y análisis de valores faltantes
+- Visualizaciones univariadas y bivariadas
+- Análisis de correlaciones entre variables
+- Evaluación de relaciones entre las variables explicativas y el puntaje de felicidad
+
+No se eliminaron valores atípicos, ya que representan países reales y no errores de medición.
+
+---
+
+## 🔍 Selección de Variables
+
+La selección de variables se realizó combinando:
+- análisis de correlación,
+- visualizaciones exploratorias,
+- y criterio experto,
+
+priorizando aquellas variables con mayor relación con la variable objetivo.
+
+---
+
+## 🤖 Modelado
+
+Se entrenaron y compararon dos modelos de regresión:
+- **Ridge Regression**, como modelo lineal base
+- **Random Forest Regressor**, para capturar relaciones no lineales entre las variables
+
+---
+
+## 📈 Métricas de Evaluación
+
+Los modelos fueron evaluados utilizando:
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Squared Error)
+- R² (Coeficiente de determinación)
+
+El modelo Random Forest presentó un mejor desempeño general.
+
+---
+
+## 🧾 Conclusiones
+
+Los resultados muestran que la felicidad es un fenómeno multifactorial influenciado por variables económicas, sociales y de salud.  
+El análisis exploratorio y el modelado permitieron identificar patrones relevantes y desarrollar un modelo con buen desempeño predictivo, destacándose el enfoque no lineal frente al modelo lineal base.
+
+---
+
+## 🛠️ Herramientas Utilizadas
+
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn  
+- Scikit-learn  
+- Jupyter Notebook  
+
+---
+
+## 👤 Autor
+
+**Jeremías Davison**  
+Proyecto desarrollado como parte de la cursada de *Data Science I*.
